@@ -35,3 +35,14 @@ over, character by character
 - Stringbuffer simple creates an array of all the strings,
 copying them back to a string only when necessary
 
+
+## LinkedList
+- Create LinkedList from Scratch
+- The runner technique: you iterate through the linkedList with two
+pointers simultaneously, with one ahead of the other. The fast node might be 
+ahead by fixed amount or hopping nodes when iterating through. 
+- Recursive algorithm will take O(n) space, where n is the depth of the 
+recursive call. All recursive method can be implement iteratively, although
+they might be much more complex.
+
+
