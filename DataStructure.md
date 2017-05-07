@@ -46,3 +46,22 @@ recursive call. All recursive method can be implement iteratively, although
 they might be much more complex.
 
 
+## Trees and Graphs
+- Fluency in implementing a tree or graph from scratch will prove essential
+- Be sure to watch out for a the following issues and seek clarification
+when necessary:
+    * Binary Tree vs Binary Search Tree:
+    a binary search tree imposes the condition that for all nodes, the left
+    children are less than or equal to the current node, which is less than all the right nodes
+    * Balanced vs Unbalanced
+    * Binary Tree Traversal: in-order,post-rder,
+    and pre-order traversal.
+        * Most common is in-order, left, current, right
+    * Graph Traversal: (know how to implement them)
+        * BFS: using ** queue **, finding the shortest path of the vertex, finding neighbor nodes,
+        GPS system to find nearby location, social network to find people in the specified
+        distance
+        * DFS: using stack, is typically the easiest if we want to visit every node
+        in the graph, or at least visit every node until we find whatever we're looking
+        for. However, if we have a very large tree and we want to be prepared to
+            quit when we get too far from the original node, DFS can be problematic.
