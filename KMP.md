@@ -47,3 +47,83 @@ pattern is there.
 
  - If there is laready a pattern when mayching, that means we can assume that
  the string do match on the previously and start with the one that doesn't match.
+
+## Implementation
+
+```
+/* this will be worst case for O(n) */
+public class KMP {
+    public static void main (String args[]){
+         String str = "abcxabcdabcdabcy";
+         String subString = "abcdabcy";
+         boolean result = kmp(subString, str);
+         System.out.println(result);
+    }
+
+    public static boolean kmp(String pattern, String s) {
+        int [] lps = preproc(pattern);
+
+        int i = 0; // for the pattern
+        int j = 0; // for the s
+
+        while(i<pattern.length() && j < s.length()){
+            if(pattern.charAt(i) == s.charAt(j)){
+                i++;
+                j++;
+            }else { // if they are not the same then get the lps to 
+                // see if they are the same or not, until i is 0
+                // because the lps value indicate that that means there 
+                // is a match between since in pattern, there is a 
+                // suffix and prefix pattern that is match
+                if(i == 0){
+                    j++;
+                }
+                else {
+                    i = lps[i-1];
+                }
+            }
+        }
+        if(i < pattern.length()){
+            return false;
+        }else {
+            return true;
+        }
+    }
+
+    private static int[] preproc(String pattern){
+        // setting the length of hte preproc 
+        // the value will be the index of the starting suffix that is not the same
+        int lps[] = new int[pattern.length()];
+
+        int j = 0;
+        int i = 1;
+        lps[0] = 0; // initialized all the value
+
+        while(i<pattern.length() && j<pattern.length()){
+            // if they are the same then increment the value of the lps
+            // to set the initial position of the matching suffix
+            if(pattern.charAt(i) == pattern.charAt(j)){
+                lps[i] = j+1; // set the lps[i] to the value of the nxt j
+                i++;
+                j++;
+            }else {
+                // if it goes to 0, then just set the current lps[i] to 0
+                // for instance, if abcabd, d will be 0 since it will get 
+                // push back to the initial value
+                if(j==0){
+                    lps[i] = 0;
+                    i++; // increment to compare it to the next value to see if it is the same or not
+                }else {
+                    // keep decrement it until j is 0
+                    // keep decrement it to the last matching suffix
+                    j = lps[j-1]; // have to be careful here
+                }
+            }
+        }
+
+        return lps;
+
+    }
+}
+```    
+
