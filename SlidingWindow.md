@@ -17,8 +17,8 @@ the count on the index of the pattern
     * reseting the left value in the array, if the left value is less than 0
     means there is no character match, so don't increment the count
     * but if the left value in the array is 0 or greater means there is a 
-    match in the cahracter so increment the count
-    * increment the value and increment hte left to set the window to the same 
+    match in the character so increment the count
+    * increment the value and increment the left to set the window to the same 
     size as the pattern
 
 ```

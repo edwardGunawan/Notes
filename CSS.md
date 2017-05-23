@@ -29,3 +29,8 @@
 3. Both relatively and absolutely positioned items won’t affect the static and fixed items around them. 
 
 
+
+## Float
+
+
+

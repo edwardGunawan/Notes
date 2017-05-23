@@ -88,8 +88,8 @@ next state.
     private void backtrack(List<List<Integer>> list , List<Integer> tempList, int[]nums,int start){
         list.add(new ArrayList<>(tempList));
         for(int i = start; i < nums.length; i++){
-            if(i<start && nums[i] == nums[i-1]) continue ; // skip duplicates
-            temoList.add(nums[i]);
+            if(i>start && nums[i] == nums[i-1]) continue ; // skip duplicates , cause it already been added before
+            tempList.add(nums[i]);
             backtrack(list, tempList, nums, i+1);
             tempList.remove(tempList.size() - 1);
         }
