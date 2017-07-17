@@ -35,7 +35,7 @@ pattern is there.
  - the value of lps[] will also be the value where the substring starts at first.
  **the value store the position on the last index that is the same in the pattern**
  - so if i and j are the same --> increment the **index** of j by 1
- - If fount mismatch, you will go to the previous j-1 index and the value of it,
+ - If found mismatch, you will go to the previous j-1 index and the value of it,
  until it match, then increment that value by 1.
  - the value will serve as the position of where they string need to start to compare 
  it again.

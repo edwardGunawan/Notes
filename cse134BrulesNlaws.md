@@ -13,6 +13,7 @@ Rules/laws from lecture slides:
     * Usability and user satisfaction are directly related 
     * Web browsers do not user sites, people do 
     * Users try to maximize gain and minimize work (the lazy person rule 80/20 Pareto Principle) 
+    * 20 percent of the code has 80 percent of the errors. Find them, fix them!
     * Recognition is easier than recall, so don’t force users to memorize information 
     * The amount of time a user will wait is proportional to the expected payoff 
     * Time matters more to a user than bytes delivered (unless user is paying by the byte) 

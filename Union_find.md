@@ -104,13 +104,13 @@ is connected to:
     * Number of operations M can be huge.
     * Find queries and union commands may be intermixed
 ###  Class UF:
-    * UF(int N) initialized union -find data structure with N objects (0 to N-1)
+    * UF(int N) initialized union-find data structure with N objects (0 to N-1)
     * check for two series and see if it exist or not, if it doesn’t exist or connected between the two component, then union them.
 ### Quick find:
     * DS: integer array id[] of size N
     * interpretation: p and q are connected iff they have the same id
     * find: check if p and q have the same id, and if they are in the same id, then they will have the same component
-    * union: merge components containing p and q, change all entires whose id equals id[p] to id[q].
+    * union: merge components containing p and q, change all entries whose id equals id[p] to id[q].
         * kind of hard: you have to change for all the things that connected to one id to the other id
         * every time when you connected, or union, you have to loop through the entire array and changing all the entry of the same value with the first value to the second value id[q].
         ```
