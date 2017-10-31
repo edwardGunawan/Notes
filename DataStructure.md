@@ -257,4 +257,4 @@ but it won't swap every element into it
 using sift up and it is O(nlogn)
 
 
-- Max Heap for ascending sorting, Min heap for descending sorting
+- Max Heap for descending sorting, Min heap for ascending sorting
