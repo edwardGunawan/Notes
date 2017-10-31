@@ -72,3 +72,52 @@ or a 2 item.
 - Undirected graph adjacency list: 2|E|, because each i,j will contain duplicate, one in i list, and 
 the other in j list, and there are E edges. 
 - For directed graph with 1 edge, on each vertex, it will be |E| because each list will only have 1 value.
+- The Space complexity of Adjacency List is : O(V+E) because minimum it will have V rows, and the E column
+each vertex will connected to the other vertices.
+
+
+
+**know how to do bfs and dfs on a graph**
+### DFS template on a graph:
+- Starting from each point, and dfs its neighbor if the neighbor is equal or less than itself. And maintain
+two boolean matrix for two oceans, indicating an ocean can reach to that point or not. Finally go through all nodes
+again and see if it can be both reached by two oceans. **The trick is if a node is already visited, no need to 
+visited again** otherwise it will reach recursion limit
+
+- create a direction array x and y [(1,0), (-1,0), (0,1), (0,-1)] so when you want to 
+explore from a node you can just loop through the x and y diretion 1 by 1
+- Usually dfs helper method to explore the matrix:
+```
+    dfs(int i, int j, int[][]matrix, boolean[][]visited, int m, int n){
+        if(visited[i][j]){
+            // return or return a value
+        }
+
+        // create the direction init
+        int[]x = {0,0,1,-1};
+        int[]y = {1,-1,0,0};
+
+        for(int k=0;k<4;k++){
+            // condition that you want to skip this round
+            if(i+x[k]<0 && i+x[k]>=m && j+y[k]<0 && j+y[k]>=n){
+                continue;
+            }
+            // add another checking here^ 
+            // do something else
+            visited[i][j] = true;
+
+            // explore the next level
+            dfs(i+x[k],j+y[k],matrix,visited,m,n)
+
+        }
+    }
+
+    for(int i = 0 ; i< rows; i++){
+        for(int j = 0; j< columns; j++){
+            dfs(i,j,matrix,visited,rows,columns);
+        }
+    }
+```
+
+
+

@@ -240,3 +240,21 @@ when necessary:
 - Array in iterator for stack will be reverse iteration if you want to implement
 it in queue, but for linked list, you don't have to change it
 
+
+
+### Heap
+
+- Creating a heap is O(n) time due to two regulation, sift down or sift up,
+- Sift down will take O(n) because inserting element from the end node, and 
+swaping each node with the above parent
+- Sift up can be think as creating an empty heap and reconstructing
+every time inserting, where as, sift up is treat the entire array as the broken
+heap and try to repair it.
+- Sift down is from bottom element compare each level and swapping it, 
+but it won't swap every element into it 
+
+- Therefore building a heap is using sift down and it is O(n) and heap sort
+using sift up and it is O(nlogn)
+
+
+- Max Heap for ascending sorting, Min heap for descending sorting
