@@ -99,7 +99,8 @@ explore from a node you can just loop through the x and y diretion 1 by 1
 
         for(int k=0;k<4;k++){
             // condition that you want to skip this round
-            if(i+x[k]<0 && i+x[k]>=m && j+y[k]<0 && j+y[k]>=n){
+            // if you want to include it will be and
+            if(i+x[k]<0 || i+x[k]>=m || j+y[k]<0 || j+y[k]>=n){
                 continue;
             }
             // add another checking here^ 
