@@ -54,3 +54,60 @@ level and number of levels is O(logn), update is also O(logn) to update a leaf v
 we process one node at every level and number of levels is O(logn)
 
 Geeks for geeks [Segment Tree](http://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/)
+
+
+# Binary Indexed Tree (Fenwick Tree)
+======================================
+- The use for fenwick tree is to use the perfect sum of n arrays
+    - Ex: the sum from 0-4 or the sum from 0-6
+- Possibility of other alternative is to create another array that has all the sum
+
+- Fenwick tree: Construct: O(nlogn), update: O(logn), sum: O(logn)
+
+
+(Fenwick Tree)[https://www.youtube.com/watch?v=4SNzC4uNmTA]
+### How does the tree is constructed?
+- The root will be the dummy node which is 0
+- It ris based upon the binary indexed of the tree, so the parent element is 
+identified from the first 1 bit in the element and flip that, means flip the right most set bit
+    - Ex: 0 is a child of 1, 2, 4, 8 because binary number of 1 if you flip it will be 0
+    h4 is 100 flip it will be 0 and 8 is 1000 will be 0
+- TYhe tree need to be constructed such that the parent index of an ith node is obtained 
+by adding by the decimal value corresponding to the last set bit of ith.
+    - Ex: parent of 9 is 1001: 9 last set bit is the first 1 so 1001 + 0001 => the parent node of 9
+```
+    // starting from index+1 for every index in arr[]
+    // Add the value from the array to the corresponding nodes and their ancestor parents
+    void updateBIT(int BIT[], int n, int index, int val){
+        index = index+1;
+
+        while(index <= n){
+            BIT[index]+=val;
+            index += index &(-index); // getting the parent index
+        }
+    }
+```
+
+
+### Get the sum Operation of the BIT
+- The update opearation, instead of constructing the tree, can also be used simply 
+update nodes in the BIT individually.
+- The value will be the same as we constructing the tree, but the parent and the child
+relationship will be based upon subtracting the LSB
+
+- Therefore, building tree in this way and do the same operation for getting the value
+of the tree
+```
+    int getSum(int [] BIT, int index){
+        int sum = 0;
+        index = index+1;
+        while(index>0){
+            sum+= BIT[index];
+            index -= index &(-index); // index & (-index) get the LSB
+        }
+        return sum;
+    }
+```
+
+
+- Great BIT with explanation (LeetCode)[https://discuss.leetcode.com/topic/31599/java-using-binary-indexed-tree-with-clear-explanation]
